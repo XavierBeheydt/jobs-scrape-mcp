@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+      - run: uv venv
+      - name: Installer le coeur
+        run: uv pip install git+https://github.com/XavierBeheydt/jobs-scrape.git
+      - name: Installer le module
+        run: uv pip install -e ".[dev]"
+      - run: uv run ruff check src tests
+      - run: uv run pytest -q
