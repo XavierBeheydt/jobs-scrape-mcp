@@ -241,7 +241,9 @@ def top_skills(
 
 
 @mcp.tool()
-def timeline(days: int = 30, source: str | None = None, region: str | None = None) -> dict[str, Any]:
+def timeline(
+    days: int = 30, source: str | None = None, region: str | None = None
+) -> dict[str, Any]:
     """Volume d'offres publiees par jour.
 
     Repond aux questions d'activite dans le temps : le recrutement ralentit-il,
