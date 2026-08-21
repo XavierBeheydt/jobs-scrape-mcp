@@ -6,4 +6,6 @@ dist/
 build/
 .pytest_cache/
 .ruff_cache/
-data/
+# Ancre a la racine : un simple `data/` matcherait aussi les donnees
+# embarquees dans le paquet (src/*/data/), qui doivent etre versionnees.
+/data/
